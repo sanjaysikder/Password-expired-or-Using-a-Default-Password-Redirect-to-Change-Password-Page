@@ -6,17 +6,7 @@ In some cases, a user's password may be reset to a known default (e.g., 'Welcome
 
 ### 🔧 Implementation Steps
 
-#### 1. Add a Flag or Logic to Detect Default Password
-
-There are two common ways to check for default password usage:
-
-### 2. Create a "Change Password" Page
-
-Create a page in your APEX app (e.g., Page **1001**) where users can change their password.
-
----
-
-**Store a "Password Reset" Flag in the User Table**
+#### 1. Add a Flag or Logic to Detect Default Password or Password expired
 
 Add two columns to your user table (if not already there):
 
@@ -25,6 +15,13 @@ ALTER TABLE ACL_USER ADD password_reset_required CHAR(1);
 ALTER TABLE ACL_USER ADD expiry_date DATE;
 
 ```
+
+### 2. Create a "Change Password" Page
+
+Create a page in your APEX app (e.g., Page **1001**) where users can change their password.
+
+---
+
 ### 3. Create a Function to Check Password Expiry or Default Password
 
 Create a function that checks if the user’s password is expired or Default Password.
